@@ -8,7 +8,7 @@
 require 'database.php';
 
 // Ensures all pages maintain session state
-#session_start();
+session_start();
 
 // Checks the SQL connection
 function checkConnect($mysqli) {

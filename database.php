@@ -1,10 +1,10 @@
 <?php
 class Database
 {
-    private static $dbName = '' ;
+    private static $dbName = 'DBNAME' ;
     private static $dbHost = 'localhost' ;
-    private static $dbUsername = '';
-    private static $dbUserPassword = '';
+    private static $dbUsername = 'root';
+    private static $dbUserPassword = 'root';
      
     private static $cont  = null;
      
@@ -34,5 +34,3 @@ class Database
         self::$cont = null;
     }
 }
-
->
