@@ -75,9 +75,9 @@ writeBodyOpen();
 					    </div>
 					  </div>
 					  <div class="control-group <?php echo !empty($phoneError)?'error':'';?>">
-					    <label class="control-label">Mobile Number</label>
+					    <label class="control-label">Phone Number</label>
 					    <div class="controls">
-					      	<input name="phone" type="text"  placeholder="Mobile Number" value="<?php echo !empty($phone)?$phone:'';?>">
+					      	<input name="phone" type="text"  placeholder="Phone Number" value="<?php echo !empty($phone)?$phone:'';?>">
 					      	<?php if (!empty($phoneError)): ?>
 					      		<span class="help-inline"><?php echo $phoneError;?></span>
 					      	<?php endif;?>
@@ -85,7 +85,7 @@ writeBodyOpen();
 					  </div>
 					  <div class="form-actions">
 						  <button type="submit" class="btn btn-success">Add</button>
-						  <a class="btn btn-primary" href="index.php">Back</a>
+						  <a class="btn btn-primary" href="crud_customers.php">Back</a>
 						</div>
 					</form>
 				</div>

@@ -19,7 +19,7 @@ echo "<thead>
         <tr>
         <th>Name</th>
         <th>E-mail Address</th>
-        <th>Mobile Number</th>
+        <th>PhoneNumber</th>
         <th>Action</th></tr>
     </thead>";
 
