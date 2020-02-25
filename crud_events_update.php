@@ -70,7 +70,7 @@ $id = null;
 		Database::disconnect();
 	}
 
-writeHeader();
+writeHeader("CRUD - Events - Update an event");
 writeBodyOpen();
 ?>
 

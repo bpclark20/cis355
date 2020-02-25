@@ -49,7 +49,7 @@ if ( !empty($_POST)) {
 	}
 }	
 
-writeHeader();
+writeHeader("CRUD - Events - Add a new event");
 writeBodyOpen();
 ?>
 
@@ -62,7 +62,7 @@ writeBodyOpen();
 					  <div class="control-group <?php echo !empty($dateError)?'error':'';?>">
 					    <label class="control-label">Date</label>
 					    <div class="controls">
-					      	<input name="date" type="text"  placeholder="date" value="<?php echo !empty($date)?$date:'';?>">
+					      	<input name="date" type="date"  placeholder="Date" value="<?php echo !empty($date)?$date:'';?>">
 					      	<?php if (!empty($dateError)): ?>
 					      		<span class="help-inline"><?php echo $dateError;?></span>
 					      	<?php endif; ?>
@@ -71,7 +71,7 @@ writeBodyOpen();
 					  <div class="control-group <?php echo !empty($timeError)?'error':'';?>">
 					    <label class="control-label">Time</label>
 					    <div class="controls">
-					      	<input name="time" type="text" placeholder="time" value="<?php echo !empty($time)?$time:'';?>">
+					      	<input name="time" type="time" placeholder="Time" value="<?php echo !empty($time)?$time:'';?>">
 					      	<?php if (!empty($timeError)): ?>
 					      		<span class="help-inline"><?php echo $timeError;?></span>
 					      	<?php endif;?>
@@ -80,7 +80,7 @@ writeBodyOpen();
 					  <div class="control-group <?php echo !empty($locationError)?'error':'';?>">
 					    <label class="control-label">Location</label>
 					    <div class="controls">
-					      	<input name="location" type="text"  placeholder="location" value="<?php echo !empty($location)?$location:'';?>">
+					      	<input name="location" type="text"  placeholder="Location" value="<?php echo !empty($location)?$location:'';?>">
 					      	<?php if (!empty($locationError)): ?>
 					      		<span class="help-inline"><?php echo $locationError;?></span>
 					      	<?php endif;?>
@@ -89,7 +89,7 @@ writeBodyOpen();
 					  <div class="control-group <?php echo !empty($descriptionError)?'error':'';?>">
 					    <label class="control-label">Description</label>
 					    <div class="controls">
-					      	<input name="description" type="text"  placeholder="description" value="<?php echo !empty($description)?$description:'';?>">
+					      	<input name="description" type="text"  placeholder="Description" value="<?php echo !empty($description)?$description:'';?>">
 					      	<?php if (!empty($descriptionError)): ?>
 					      		<span class="help-inline"><?php echo $descriptionError;?></span>
 					      	<?php endif;?>

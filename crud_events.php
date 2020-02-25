@@ -3,7 +3,7 @@
 #include helper php file
 require 'pageWriter.php';
 
-writeHeader();
+writeHeader("CRUD - Events");
 writeBodyOpen();
 
 echo "<h2>CRUD - Events</h2>";

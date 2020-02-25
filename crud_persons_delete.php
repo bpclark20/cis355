@@ -16,18 +16,18 @@ if ( !empty($_POST)) {
 	// delete data
 	$pdo = Database::connect();
 	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	$sql = "DELETE FROM events  WHERE id = ?";
+	$sql = "DELETE FROM persons  WHERE id = ?";
 	$q = $pdo->prepare($sql);
 	$q->execute(array($id));
 	Database::disconnect();
-	header("Location: crud_events.php");
+	header("Location: crud_persons.php");
 }
 else { //Otherwise prepopulate the date fields and bring up the details of the selected person to be deleted
 	$pdo = Database::connect();
 	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 	# Get details of person
-	$sql = "SELECT * FROM events where id = ?";
+	$sql = "SELECT * FROM persons where id = ?";
 	$q = $pdo->prepare($sql);
 	$q->execute(array($id));
 	$data = $q->fetch(PDO::FETCH_ASSOC);
@@ -35,54 +35,55 @@ else { //Otherwise prepopulate the date fields and bring up the details of the s
 	Database::disconnect();
 }
 
-writeHeader("CRUD - Events - Delete an Event");
+writeHeader("CRUD - Persons - Delete a person");
 writeBodyOpen();
 ?>
 <div class="span10 offset1">
 	<div class="row">
-		<h2>Delete an Event</h2>
+		<h2>Delete a Person</h2>
 	</div>
 		    		
-	<form class="form-horizontal" action="crud_events_delete.php" method="post">
+	<form class="form-horizontal" action="crud_persons_delete.php" method="post">
 		<input type="hidden" name="id" value="<?php echo $id;?>"/>
-
-		<div class="form-horizontal" >
+<div class="form-horizontal" >
 					  <div class="control-group">
-					    <h4>Date</h4>
+					    <h4>Name</h4>
 					    <div class="controls">
 						    <label class="checkbox">
-						     	<?php echo $data['eventDate'];?>
+						     	<?php echo $data['fname'] . " ";
+						     	echo $data['lname'];?>
 						    </label>
 					    </div>
 					  </div>
 					  <div class="control-group">
-					    <h4>Time</h4>
+					    <h4>Email Address</h4>
 					    <div class="controls">
 					      	<label class="checkbox">
-						     	<?php echo $data['eventTime'];?>
+						     	<?php echo $data['email'];?>
 						    </label>
 					    </div>
 					  </div>
 					  <div class="control-group">
-					    <h4>Location</h4>
+					    <h4>Phone Number</h4>
 					    <div class="controls">
 					      	<label class="checkbox">
-						     	<?php echo $data['location'];?>
+						     	<?php echo $data['mobile'];?>
 						    </label>
 					    </div>
 					  </div>
 					  <div class="control-group">
-					    <h4>Description</h4>
+					    <h4>Title</h4>
 					    <div class="controls">
 					      	<label class="checkbox">
-						     	<?php echo $data['description'];?>
+						     	<?php echo $data['title'];?>
 						    </label>
 					    </div>
-					</div>
-		  <p class="alert alert-error">Are you sure you would like to delete this event?</p>
+					  </div>
+
+		  <p class="alert alert-error">Are you sure you want to delete this person?</p>
 	    <div class="form-actions">
 			<button type="submit" class="btn btn-danger">Yes</button>
-			<a class="btn btn-primary" href="crud_events.php">No</a>
+			<a class="btn btn-primary" href="crud_persons.php">No</a>
 		</div>
 	</div>
 	</form>

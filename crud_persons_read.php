@@ -9,63 +9,75 @@ $id = null;
 	}
 	
 	if ( null==$id ) {
-		header("Location: crud_events.php");
+		header("Location: crud_persons.php");
 	} else {
 		$pdo = Database::connect();
 		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		$sql = "SELECT * FROM events where id = ?";
+		$sql = "SELECT * FROM persons where id = ?";
 		$q = $pdo->prepare($sql);
 		$q->execute(array($id));
 		$data = $q->fetch(PDO::FETCH_ASSOC);
 		Database::disconnect();
 	}
 
-writeHeader("CRUD - Events - Read an event");
+writeHeader("CRUD - Persons - Read a person");
 writeBodyOpen();
 
-echo "<a href='crud_events.php'><h2>CRUD - Events</h2></a>";
+echo "<h2>CRUD - Persons</h2>";
+
 ?>
 
 <div class="span10 offset1">
     				<div class="row">
-		    			<h3>Read an Event</h3>
+		    			<h3>Person Details</h3>
 		    		</div>
 		    		
 	    			<div class="form-horizontal" >
 					  <div class="control-group">
-					    <h4>Date</h4>
+					    <h4>Name</h4>
 					    <div class="controls">
 						    <label class="checkbox">
-						     	<?php echo $data['eventDate'];?>
+						     	<?php echo $data['fname'] . " ";
+						     	echo $data['lname'];?>
 						    </label>
 					    </div>
 					  </div>
 					  <div class="control-group">
-					    <h4>Time</h4>
+					    <h4>Email Address</h4>
 					    <div class="controls">
 					      	<label class="checkbox">
-						     	<?php echo $data['eventTime'];?>
+						     	<?php echo $data['email'];?>
 						    </label>
 					    </div>
 					  </div>
 					  <div class="control-group">
-					    <h4>Location</h4>
+					    <h4>Phone Number</h4>
 					    <div class="controls">
 					      	<label class="checkbox">
-						     	<?php echo $data['location'];?>
+						     	<?php echo $data['mobile'];?>
 						    </label>
 					    </div>
 					  </div>
 					  <div class="control-group">
-					    <h4>Description</h4>
+					    <h4>Title</h4>
 					    <div class="controls">
 					      	<label class="checkbox">
-						     	<?php echo $data['description'];?>
+						     	<?php echo $data['title'];?>
 						    </label>
 					    </div>
 					  </div>
+					  <!-- photo upload not currently implemented
+					  <div class="control-group">
+					    <h4>Photo</h4>
+					    <div class="controls">
+					      	<label class="checkbox">
+						     	<?php echo $data['filecontent'];?>
+						    </label>
+					    </div>
+					  </div>
+					-->
 					    <div class="form-actions">
-						  <a class="btn btn-primary" href="crud_events.php">Back</a>
+						  <a class="btn btn-primary" href="crud_persons.php">Back</a>
 					   </div>
 					
 					 
